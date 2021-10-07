@@ -1,0 +1,14 @@
+!begin
+
+    !var num;
+    !var result;
+
+    !write("Digite um numero: ");
+    !read(num);
+
+    result = num + 2;
+
+    !write("Resultado: ");
+    !write(result);
+
+!end

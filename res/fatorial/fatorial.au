@@ -1,0 +1,19 @@
+!begin
+
+    !var num;
+    !var fat;
+
+    !write("Digite um numero: ");
+    !read(num);
+
+    fat = 1;
+
+    !loop( num > 1 )
+        fat = fat * num;
+        num = num - 1;
+    !endloop
+
+    !write("Fatorial = ");
+    !write(fat);
+
+!

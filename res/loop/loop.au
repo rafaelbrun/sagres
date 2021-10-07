@@ -1,0 +1,14 @@
+!begin
+
+    !var num;
+
+    !write("Digite o numero de loops: ");
+    !read(num);
+
+    !loop (num < 0)
+        !write("Loops faltando: ");
+        !write(num);
+        num = num - 1;
+    !endloop
+
+!end

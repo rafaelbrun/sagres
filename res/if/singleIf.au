@@ -1,0 +1,12 @@
+!begin
+
+    !var num;
+
+    !write("Digite um numero: ");
+    !read(num);
+
+    !if(num > 2)
+        !write("Numero maior que 2");
+    !endif
+
+!end

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><gals_file><options_list><option><name>scanner.gen</name><value>true</value></option><option><name>parser.gen</name><value>true</value></option><option><name>scanner.sensitive</name><value>true</value></option><option><name>scanner.name</name><value>Lexico</value></option><option><name>parser.name</name><value>Sintatico</value></option><option><name>semantic.name</name><value>Semantico</value></option><option><name>package</name><value/></option><option><name>language</name><value>java</value></option><option><name>language</name><value>java</value></option><option><name>parser</name><value>LL</value></option><option><name>table.scanner</name><value>full</value></option></options_list><data><definitions>whitespace : [\s\t\n]
+comment    : [\0-\41\43-\255]
+character  : [a-zA-Z]
+integer    : [0-9]
+string     : [\0-\9\11-\33\35-\91\93-\255]</definitions><tokens>                       	: {whitespace}*
+                        	: / / [^\n]*
+id	              	: {character}({character} | {integer} )*
+keyword		: !({character})*
+number         	: ({integer})+
+string_literal          	: \" ({string} | \\ \" | \\ {character})* \"
+
+init_program	= keyword : "!begin"
+close_program	= keyword : "!end"
+
+if       		= keyword : "!if"
+else     		= keyword : "!else"
+endif		= keyword : "!endif"
+
+loop     		= keyword : "!loop"
+endloop  		= keyword : "!endloop"
+
+write    		= keyword : "!write"
+read    		= keyword : "!read"
+var      		= keyword : "!var"
+
+"("
+")"
+";"
+"="
+"+"
+"-"
+"*"
+"/"
+"&lt;"
+"&gt;"</tokens><non_terminals>&lt;SAGRES&gt;
+&lt;RECURSIVE_STATEMENT&gt;
+&lt;STATEMENT&gt;
+&lt;WRITE&gt;
+&lt;READ&gt;
+&lt;CONDITIONAL&gt;
+&lt;IF&gt;
+&lt;ELSE&gt;
+&lt;LOOP&gt;
+&lt;WHILE&gt;
+&lt;DECLARATION&gt;
+&lt;ASSIGNMENT&gt;
+&lt;BASIC_EXPRESSION&gt;
+&lt;BASIC_OPERATOR&gt;
+&lt;STRING_EXPRESSION&gt;
+&lt;ANY_EXPRESSION&gt;
+&lt;LOGICAL_EXPRESSION&gt;
+&lt;ID_OR_NUMBER&gt;
+&lt;LOGICAL_OPERATOR&gt;</non_terminals><grammar>&lt;SAGRES&gt;          	::= init_program &lt;RECURSIVE_STATEMENT&gt; close_program
+|                         î
+;
+&lt;RECURSIVE_STATEMENT&gt; ::= &lt;STATEMENT&gt; &lt;RECURSIVE_STATEMENT&gt;
+|                        î
+;
+&lt;STATEMENT&gt;           ::= &lt;WRITE&gt;
+|                         	&lt;READ&gt;
+|                         	&lt;CONDITIONAL&gt;
+|                         	&lt;LOOP&gt;
+|                         	&lt;DECLARATION&gt;
+|                         	&lt;ASSIGNMENT&gt;
+;
+&lt;WRITE&gt;               	::= write "(" &lt;ANY_EXPRESSION&gt; ")" ";"
+;
+&lt;READ&gt;                	::= read "(" id ")" ";"
+;
+&lt;CONDITIONAL&gt; 	::= &lt;IF&gt; &lt;ELSE&gt; endif
+;
+&lt;IF&gt;                  	::= if "(" &lt;LOGICAL_EXPRESSION&gt; ")" &lt;RECURSIVE_STATEMENT&gt;
+;
+&lt;ELSE&gt;                	::= else &lt;RECURSIVE_STATEMENT&gt;
+|                         î
+;
+&lt;LOOP&gt;                	::= &lt;WHILE&gt; endloop
+;
+&lt;WHILE&gt;               	::= loop "(" &lt;LOGICAL_EXPRESSION&gt; ")" &lt;RECURSIVE_STATEMENT&gt;
+;
+&lt;DECLARATION&gt; 	::= var id ";"
+;
+&lt;ASSIGNMENT&gt;  	::= id "=" &lt;BASIC_EXPRESSION&gt; ";"
+;
+&lt;BASIC_EXPRESSION&gt;    ::= id &lt;BASIC_OPERATOR&gt;
+|                         	number &lt;BASIC_OPERATOR&gt;
+|                        	 "+" &lt;BASIC_EXPRESSION&gt;
+|                         	"-" &lt;BASIC_EXPRESSION&gt;
+|                        	 "(" &lt;BASIC_EXPRESSION&gt; ")" &lt;BASIC_OPERATOR&gt;
+;
+&lt;BASIC_OPERATOR&gt;      ::= "+" &lt;BASIC_EXPRESSION&gt;
+|                         	"-" &lt;BASIC_EXPRESSION&gt;
+|                         	"*" &lt;BASIC_EXPRESSION&gt;
+|                         	"/" &lt;BASIC_EXPRESSION&gt;
+|                         î
+;
+&lt;STRING_EXPRESSION&gt;   	::= string_literal
+;
+&lt;ID_OR_NUMBER&gt; 		::= id | number;
+&lt;ANY_EXPRESSION&gt;        	::= &lt;BASIC_EXPRESSION&gt;
+|                         &lt;STRING_EXPRESSION&gt;
+;
+&lt;LOGICAL_OPERATOR&gt;       	::=  "&lt;" | "&gt;";
+&lt;LOGICAL_EXPRESSION&gt;  	::=  &lt;ID_OR_NUMBER&gt; &lt;LOGICAL_OPERATOR&gt; &lt;ID_OR_NUMBER&gt;;
+</grammar></data></gals_file>
