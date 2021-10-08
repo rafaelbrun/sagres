@@ -1,0 +1,22 @@
+!begin
+
+    !var num;
+    !var result;
+
+    num = 1;
+    result = 2;
+
+    !write("Digite um numero: ");
+    !read(num);
+
+    !if (num > 5)
+        !write("Realizando conta ((2 * 2) + (6/2)) + 12 e salvando...");
+        result = ((2 * 2) + (6 / 2)) + 12;
+    !else
+        !write("O valor e menor ou igual a 5");
+    !endif
+
+    !write("Resultado: ");
+    !write(result);
+
+!end

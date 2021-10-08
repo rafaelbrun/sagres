@@ -1,0 +1,3 @@
+!begin
+    !write("Digite um numero: ");
+!end
