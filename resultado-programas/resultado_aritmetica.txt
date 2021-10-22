@@ -1,0 +1,75 @@
+INIT  at [ 1 , 1 ] | lexeme = !begin
+VAR  at [ 3 , 5 ] | lexeme = !var
+ID  at [ 3 , 10 ] | lexeme = num
+SEMICOLON  at [ 3 , 13 ] | lexeme = ;
+VAR  at [ 4 , 5 ] | lexeme = !var
+ID  at [ 4 , 10 ] | lexeme = result
+SEMICOLON  at [ 4 , 16 ] | lexeme = ;
+ID  at [ 6 , 5 ] | lexeme = num
+EQUALS  at [ 6 , 9 ] | lexeme = =
+NUMBER  at [ 6 , 11 ] | lexeme = 1
+SEMICOLON  at [ 6 , 12 ] | lexeme = ;
+ID  at [ 7 , 5 ] | lexeme = result
+EQUALS  at [ 7 , 12 ] | lexeme = =
+NUMBER  at [ 7 , 14 ] | lexeme = 2
+SEMICOLON  at [ 7 , 15 ] | lexeme = ;
+WRITE  at [ 9 , 5 ] | lexeme = !write
+OPEN_PARENTHESIS  at [ 9 , 11 ] | lexeme = (
+STRING  at [ 9 , 12 ] | lexeme = "Digite um numero: "
+CLOSE_PARENTHESIS  at [ 9 , 32 ] | lexeme = )
+SEMICOLON  at [ 9 , 33 ] | lexeme = ;
+READ  at [ 10 , 5 ] | lexeme = !read
+OPEN_PARENTHESIS  at [ 10 , 10 ] | lexeme = (
+ID  at [ 10 , 11 ] | lexeme = num
+CLOSE_PARENTHESIS  at [ 10 , 14 ] | lexeme = )
+SEMICOLON  at [ 10 , 15 ] | lexeme = ;
+IF  at [ 12 , 5 ] | lexeme = !if
+OPEN_PARENTHESIS  at [ 12 , 9 ] | lexeme = (
+ID  at [ 12 , 10 ] | lexeme = num
+GREATER_THAN  at [ 12 , 14 ] | lexeme = >
+NUMBER  at [ 12 , 16 ] | lexeme = 5
+CLOSE_PARENTHESIS  at [ 12 , 17 ] | lexeme = )
+WRITE  at [ 13 , 9 ] | lexeme = !write
+OPEN_PARENTHESIS  at [ 13 , 15 ] | lexeme = (
+STRING  at [ 13 , 16 ] | lexeme = "Realizando conta ((2 * 2) + (6/2)) + 12 e salvando..."
+CLOSE_PARENTHESIS  at [ 13 , 71 ] | lexeme = )
+SEMICOLON  at [ 13 , 72 ] | lexeme = ;
+ID  at [ 14 , 9 ] | lexeme = result
+EQUALS  at [ 14 , 16 ] | lexeme = =
+OPEN_PARENTHESIS  at [ 14 , 18 ] | lexeme = (
+OPEN_PARENTHESIS  at [ 14 , 19 ] | lexeme = (
+NUMBER  at [ 14 , 20 ] | lexeme = 2
+ASTERISK  at [ 14 , 22 ] | lexeme = *
+NUMBER  at [ 14 , 24 ] | lexeme = 2
+CLOSE_PARENTHESIS  at [ 14 , 25 ] | lexeme = )
+PLUS  at [ 14 , 27 ] | lexeme = +
+OPEN_PARENTHESIS  at [ 14 , 29 ] | lexeme = (
+NUMBER  at [ 14 , 30 ] | lexeme = 6
+FORWARD_SLASH  at [ 14 , 32 ] | lexeme = /
+NUMBER  at [ 14 , 34 ] | lexeme = 2
+CLOSE_PARENTHESIS  at [ 14 , 35 ] | lexeme = )
+CLOSE_PARENTHESIS  at [ 14 , 36 ] | lexeme = )
+PLUS  at [ 14 , 38 ] | lexeme = +
+NUMBER  at [ 14 , 40 ] | lexeme = 12
+SEMICOLON  at [ 14 , 42 ] | lexeme = ;
+ENDIF  at [ 15 , 5 ] | lexeme = !else
+WRITE  at [ 16 , 9 ] | lexeme = !write
+OPEN_PARENTHESIS  at [ 16 , 15 ] | lexeme = (
+STRING  at [ 16 , 16 ] | lexeme = "O valor e menor ou igual a 5"
+CLOSE_PARENTHESIS  at [ 16 , 46 ] | lexeme = )
+SEMICOLON  at [ 16 , 47 ] | lexeme = ;
+ELSE  at [ 17 , 5 ] | lexeme = !endif
+WRITE  at [ 19 , 5 ] | lexeme = !write
+OPEN_PARENTHESIS  at [ 19 , 11 ] | lexeme = (
+STRING  at [ 19 , 12 ] | lexeme = "Resultado: "
+CLOSE_PARENTHESIS  at [ 19 , 25 ] | lexeme = )
+SEMICOLON  at [ 19 , 26 ] | lexeme = ;
+WRITE  at [ 20 , 5 ] | lexeme = !write
+OPEN_PARENTHESIS  at [ 20 , 11 ] | lexeme = (
+ID  at [ 20 , 12 ] | lexeme = result
+CLOSE_PARENTHESIS  at [ 20 , 18 ] | lexeme = )
+SEMICOLON  at [ 20 , 19 ] | lexeme = ;
+CLOSE  at [ 22 , 1 ] | lexeme = !end
+
+Process finished with exit code 0
+
